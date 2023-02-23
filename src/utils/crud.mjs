@@ -1,4 +1,5 @@
 const api="https://627a44364a5ef80e2c16e872.mockapi.io/VedioGames"
+export let GAMES=[]
 
 export async function getGames(){
     
@@ -8,8 +9,8 @@ export async function getGames(){
         alert(res.statusText)
         return []
     }
-    return await res.json()
-
+    GAMES=await res.json()
+    return GAMES
 }
 
 export async function DeleteGame(id){
@@ -23,7 +24,8 @@ export async function DeleteGame(id){
         return 
     }
 
-    return await res.json()
+    GAMES=await res.json()
+    return GAMES
 }
 
 
@@ -40,7 +42,8 @@ export async function postGame(game){
         return 
     }
 
-    return await res.json()
+    GAMES=await res.json()
+    return GAMES
 }
 
 export async function putGame(game){
@@ -55,5 +58,6 @@ export async function putGame(game){
         return 
     }
 
-    return await res.json()
+    GAMES=await res.json()
+    return GAMES
 }

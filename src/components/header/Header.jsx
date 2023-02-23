@@ -6,8 +6,9 @@ export default function Header({games}) {
     return (
         <header>
             <nav>
-                <NavLink state={games} to='/'>Store</NavLink>
-                <NavLink state={games} to='/manage-games'>Manage Games</NavLink>
+                <NavLink to='/'>Home</NavLink>
+                <NavLink to='/store'>Store</NavLink>
+                <NavLink to='/admin-dashboard'>Admin Dashboard</NavLink>
             </nav>
         </header>
     )

@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import { GAMES } from '../../utils/crud.mjs'
 import './ManageGames.css'
 export default function ManageGames() {
-  const location=useLocation()
-  const games=location.state
+//   const location=useLocation()
+//   const games=location.state
+const games=GAMES
   return (
     <div className="manage-games">
         <table>
@@ -19,8 +21,8 @@ export default function ManageGames() {
             </thead>
             <tbody>
                 {
-                    games.map(g=>{
-                      return  <tr>
+                    games&&games.map((g,i)=>{
+                      return  <tr key={i}>
                             <td>{g.title}</td>
                             <td>{g.type}</td>
                             <td>{g.price}</td>

@@ -1,49 +1,57 @@
-import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Link, Outlet, Route, RouterProvider, Routes } from 'react-router-dom'
+import { createBrowserRouter,RouterProvider } from 'react-router-dom'
 import './App.css'
+import AddGame from './components/admin/controls/AddGame'
+import EditGame  from './components/admin/controls/EditGame'
+import AdminDashboard from './components/admin/dashboard/AdminDashboard'
 import ManageGames from './components/admin/ManageGames'
 import DetailsVideoGame from './components/Details Video Game/DetailsVideoGame'
-import Header from './components/header/Header'
-import Layout from './components/Layout'
+import Home from './components/home/Home'
+import Root from './components/Root'
 import VideoGames from './components/VIdeo Games/VideoGames'
 
 function App() {
-  // const router=createBrowserRouter([
-  //     {
-  //       path:'/',
-  //       children:[
-  //         {
-  //           path:'',
-  //           element:<Layout/>
-  //         },
-  //         {
-  //           path:'/store',
-  //           element:<VideoGames/>
-  //         },
-  //         {
-  //           path:'/admin',
-  //           element:(<h1>Admin</h1>)
-  //         },
-  //       ]
-  //     },
-  //     {
-  //       path:'/game-details',
-  //       element:<DetailsVideoGame/>
-  //     },
-
-  //     {
-  //       path:'*',
-  //       element:(<h1>not found page 404</h1>)
-  //     }
-  // ])
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-        <Route path='/' element={<Layout />}>
-          <Route path='' element={<VideoGames />} />
-          <Route path='/manage-games' element={<ManageGames />} />
-          <Route path='/game-details/:name' element={<DetailsVideoGame />} />
-        </Route>
-    )
-  )
+  const router=createBrowserRouter([
+      {
+        path:'/',
+        element:<Root/>,
+        children:[
+            {
+              path:'/',
+              element:<Home/>
+            },
+            {
+              path:'/store',
+              element:<VideoGames/>
+            },
+            {
+              path:'/admin-dashboard',
+              element:<AdminDashboard/>,
+              children:[
+                {
+                  path: "manage-games",
+                  element: <ManageGames />,
+                },
+                {
+                  path: "edit",
+                  element:<EditGame/>,
+                },
+                {
+                  path: "add",
+                  element: <AddGame />,
+                },
+              ]
+            },
+            {
+              path:'/game-details',
+              element:<DetailsVideoGame/>
+            },
+        ]
+      },
+      {
+        path:'*',
+        element:(<h1>not found page 404</h1>)
+      }
+  ])
   return (
     <div className="App">
       <RouterProvider router={router} />
