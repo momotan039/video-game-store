@@ -23,12 +23,12 @@
 }
 
 #game-detials .detials .title{
-    background-color:#646cff ;
+    background-color:var(--primary) ;
     padding: 10px;
     margin: 0;
 }
 #game-detials .detials span{
-    color: #535bf2;
+    color: var(--secondry);
 }
 #game-detials .detials .buttons{
     text-align: center;
