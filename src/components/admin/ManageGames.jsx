@@ -1,43 +1,62 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { GAMES } from '../../utils/crud.mjs'
+import { DeleteGame, GAMES } from '../../utils/crud.mjs'
+import { rootRefs } from '../../utils/local.mjs'
+import GridSpinner from '../spinner/GridSpinner.jsx'
 import './ManageGames.css'
 export default function ManageGames() {
-//   const location=useLocation()
-//   const games=location.state
-const games=GAMES
-  return (
-    <div className="manage-games">
-        <table>
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Type</th>
-                    <th>Price</th>
-                    <th>Creation Year</th>
-                    <th>image</th>
-                    <th>Operation</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    games&&games.map((g,i)=>{
-                      return  <tr key={i}>
-                            <td>{g.title}</td>
-                            <td>{g.type}</td>
-                            <td>{g.price}</td>
-                            <td>{g.year}</td>
-                            {/* backGround */}
-                            <td><img width={100} src={g.backGround}/></td>
-                            <td>
-                                <button>Edit</button>
-                                <button>Delete</button>
-                            </td>
-                        </tr>
-                    })
-                }
-            </tbody>
-        </table>
-    </div>
-  )
+    //   const location=useLocation()
+    //   const games=location.state
+    const [games, setGames] = useState(GAMES)
+    const [isDeleting,setIsDeleting]=useState(false)
+    const deleteMe = async (id) => {
+        const res = confirm("do you want to complete");
+
+        if (!res)
+            return
+
+        setIsDeleting(true)
+        await DeleteGame(id)
+        const gms = await rootRefs.reCallData()
+        setIsDeleting(false)
+        setGames(gms)
+    }
+
+    return (
+        <div className="manage-games">
+            {
+                isDeleting&&<GridSpinner/>
+            }
+            <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Price</th>
+                        <th>Creation Year</th>
+                        <th>image</th>
+                        <th>Operation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        games && games.map((g, i) => {
+                            return <tr key={i}>
+                                <td>{g.title}</td>
+                                <td>{g.type}</td>
+                                <td>{g.price}</td>
+                                <td>{g.year}</td>
+                                {/* backGround */}
+                                <td><img width={100} src={g.backGround} /></td>
+                                <td>
+                                    <button>Edit</button>
+                                    <button onClick={() => deleteMe(g.id)}>Delete</button>
+                                </td>
+                            </tr>
+                        })
+                    }
+                </tbody>
+            </table>
+        </div>
+    )
 }

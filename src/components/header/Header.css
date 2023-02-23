@@ -17,7 +17,7 @@ header nav a::after {
     width: 0%;
     height: 5px;
     border-radius: 5px;
-    background-color: #646cff;
+    background-color: var(--primary);
     left: 0;
     bottom: -3px;
     transition: all .5s cubic-bezier(1, 0, 0, 1);

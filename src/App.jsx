@@ -42,7 +42,7 @@ function App() {
               ]
             },
             {
-              path:'/game-details',
+              path:'/game-details/:name',
               element:<DetailsVideoGame/>
             },
         ]

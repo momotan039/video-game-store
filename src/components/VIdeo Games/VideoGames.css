@@ -9,7 +9,7 @@
 .games .game{
     background-color: rgb(38, 53, 67);
     width: 32%;
-    height: 300px;
+    height: 400px;
     position: relative;
     border-radius: 20px;
 }
