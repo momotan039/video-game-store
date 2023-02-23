@@ -1,0 +1,16 @@
+.manage-games table th,
+.manage-games table td{
+    border: solid;
+    padding: 5px;
+}
+.manage-games table{
+    border-collapse: collapse;
+    width: 100%;
+}
+.manage-games table td{
+    font-weight: bold;
+    background-color: #1a1a1a;
+}
+.manage-games table th{
+    background-color: #535bf2;
+}

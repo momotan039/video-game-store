@@ -2,12 +2,12 @@ import React from 'react'
 import  './Header.css'
 import { NavLink } from 'react-router-dom'
 
-export default function Header() {
+export default function Header({games}) {
     return (
         <header>
             <nav>
-                <NavLink to={''}>Store</NavLink>
-                <NavLink to={'/admin'}>Admin</NavLink>
+                <NavLink state={games} to={''}>Store</NavLink>
+                <NavLink state={games} to={'/manage-games'}>Manage Games</NavLink>
             </nav>
         </header>
     )

@@ -1,8 +1,9 @@
 import {  BrowserRouter, createBrowserRouter, createRoutesFromElements, Link, Outlet, Route, RouterProvider, Routes } from 'react-router-dom'
 import './App.css'
-import Layout from './components/Layout'
+import ManageGames from './components/admin/ManageGames'
 import DetailsVideoGame from './components/Details Video Game/DetailsVideoGame'
-import VideoGames from './components/VideoGames'
+import Layout from './components/Layout'
+import VideoGames from './components/VIdeo Games/VideoGames'
 
 function App() {
 // const router=createBrowserRouter([
@@ -37,12 +38,11 @@ const router=createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout/>}>
       <Route path='' element={<VideoGames/>}/>
-      <Route path='/admin' element={<h1>Admin</h1>}/>
+      <Route path='/manage-games' element={<ManageGames/>}/>
       <Route path='/game-details/:name' element={<DetailsVideoGame/>}/>
     </Route>
   )
 )
-console.log(router);
   return (
     <div className="App">
       <RouterProvider router={router}/>

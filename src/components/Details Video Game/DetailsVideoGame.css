@@ -2,7 +2,7 @@
     background-color: rgba(2, 19, 41, 0.403);
     border-radius: 10px;
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 }
 
 #game-detials .image{
