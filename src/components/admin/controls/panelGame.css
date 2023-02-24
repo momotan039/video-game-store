@@ -1,0 +1,36 @@
+.control-panel-game{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.control-panel-game .image{
+    width: 400px;
+    height: 443px;
+    background-size: cover;
+    background-position: center;
+}
+
+.control-panel-game .detials {
+    display: flex;
+    background: #1a1a1a;
+    padding: 18px 20px;
+    gap: 20px;
+    border-radius: 14px;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.control-panel-game .detials .row{
+    display: flex;
+}
+.control-panel-game .detials h3{
+    padding-right: 10px;
+}
+
+.control-panel-game .detials input{
+    width: 100%;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 5px;
+    border: none;
+}

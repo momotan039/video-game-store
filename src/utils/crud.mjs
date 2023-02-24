@@ -85,6 +85,23 @@ export async function postGame(game){
 }
 
 export async function putGame(game){
+    return await new Promise((res,rej)=>{
+        setTimeout(() => {
+            const g=GAMES.find(f=>f.id===game.id)
+            if(!g)
+            {
+                rej('not found game')
+                return
+            }
+            g.price=game.price
+            g.backGround=game.backGround
+            g.title=game.title
+            g.type=game.type
+            g.year=game.year
+            res(GAMES)
+        }, 2000);
+    })
+    
     const res=await fetch(api+'/'+game.id,{
         method:'PUT',
         body:JSON.stringify(game)

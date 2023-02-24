@@ -22,6 +22,7 @@ export default function ManageGames() {
         setGames(gms)
     }
 
+
     return (
         <div className="manage-games">
             {
@@ -46,10 +47,9 @@ export default function ManageGames() {
                                 <td>{g.type}</td>
                                 <td>{g.price}</td>
                                 <td>{g.year}</td>
-                                {/* backGround */}
                                 <td><img width={100} src={g.backGround} /></td>
                                 <td>
-                                    <button>Edit</button>
+                                    <Link state={g} to={'/admin-dashboard/edit'}>Edit</Link>
                                     <button onClick={() => deleteMe(g.id)}>Delete</button>
                                 </td>
                             </tr>
