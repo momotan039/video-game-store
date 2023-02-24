@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { DeleteGame, GAMES } from '../../utils/crud.mjs'
 import { rootRefs } from '../../utils/local.mjs'
 import GridSpinner from '../spinner/GridSpinner.jsx'
@@ -22,7 +22,7 @@ export default function ManageGames() {
         setGames(gms)
     }
 
-
+   
     return (
         <div className="manage-games">
             {

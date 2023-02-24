@@ -9,6 +9,8 @@
     height: 443px;
     background-size: cover;
     background-position: center;
+    background-color: #535bf2;
+    border-radius: 10px;
 }
 
 .control-panel-game .detials {

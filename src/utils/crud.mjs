@@ -1,31 +1,5 @@
 const api="https://627a44364a5ef80e2c16e872.mockapi.io/VedioGames"
-export let GAMES=[
-    {
-        "id": "36",
-        "type": "Ps3",
-        "price": 80,
-        "title": "Mortal Kombat X",
-        "year": 2012,
-        "backGround": "https://romsfun.com/wp-content/uploads/2019/10/mortal-kombat-x-ps3-300x344.jpg"
-       },
-       {
-        "id": "37",
-        "type": "Ps3",
-        "price": 80,
-        "title": "Call of Duty: Black Ops III",
-        "year": 2015,
-        "backGround": "https://romsfun.com/wp-content/uploads/2019/10/Call-of-Duty-Black-Ops-III-ps3-300x345.jpg"
-       },
-       {
-        "id": "38",
-        "type": "Ps3",
-        "price": 80,
-        "title": "Skate 3",
-        "year": 2010,
-        "backGround": "https://romsfun.com/wp-content/uploads/2020/01/Skate-3-ps3-300x349.jpg"
-       },
-      
-]
+export let GAMES=[]
 
 export async function getGames(){
     const res=await fetch(api)
