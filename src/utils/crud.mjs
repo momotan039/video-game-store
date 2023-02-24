@@ -28,11 +28,6 @@ export let GAMES=[
 ]
 
 export async function getGames(){
-   return await new Promise((res,rej)=>{
-        setTimeout(() => {
-            res(GAMES)
-        }, 2000);
-    })
     const res=await fetch(api)
     if(!res.ok)
     {
@@ -44,14 +39,7 @@ export async function getGames(){
 }
 
 export async function DeleteGame(id){
-    return await new Promise((res,rej)=>{
-        setTimeout(() => {
-            debugger
-            GAMES=GAMES.filter(g=>g.id!==id)
-            res(GAMES)
-        }, 2000);
-    })
-
+ 
     const res=await fetch(api+'/'+id,{
         method:'Delete'
     })
@@ -71,6 +59,7 @@ export async function DeleteGame(id){
 export async function postGame(game){
     const res=await fetch(api,{
         method:'POST',
+        headers: {'content-type':'application/json'},
         body:JSON.stringify(game)
     })
 
@@ -85,25 +74,25 @@ export async function postGame(game){
 }
 
 export async function putGame(game){
-    return await new Promise((res,rej)=>{
-        setTimeout(() => {
-            const g=GAMES.find(f=>f.id===game.id)
-            if(!g)
-            {
-                rej('not found game')
-                return
-            }
-            g.price=game.price
-            g.backGround=game.backGround
-            g.title=game.title
-            g.type=game.type
-            g.year=game.year
-            res(GAMES)
-        }, 2000);
-    })
-    
+    // return await new Promise((res,rej)=>{
+    //     setTimeout(() => {
+    //         const g=GAMES.find(f=>f.id===game.id)
+    //         if(!g)
+    //         {
+    //             rej('not found game')
+    //             return
+    //         }
+    //         g.price=game.price
+    //         g.backGround=game.backGround
+    //         g.title=game.title
+    //         g.type=game.type
+    //         g.year=game.year
+    //         res(GAMES)
+    //     }, 2000);
+    // })
     const res=await fetch(api+'/'+game.id,{
         method:'PUT',
+        headers: {'content-type':'application/json'},
         body:JSON.stringify(game)
     })
 
